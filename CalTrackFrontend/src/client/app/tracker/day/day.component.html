@@ -35,7 +35,8 @@
       <div class="form-group">
         <label for="time" class="col-lg-2 control-label">Time</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" placeholder="2016-08-30T11:52:01.000Z" required name="time" [(ngModel)]="newMeal.time">
+          <datetime [(ngModel)]="newMeal.time" required name="time"></datetime>
+          <!-- <input type="text" class="form-control" placeholder="2016-08-30T11:52:01.000Z" required name="time" [(ngModel)]="newMeal.time"> -->
         </div>
       </div>
       <div class="form-group">

@@ -2,7 +2,7 @@ import * as moment from "moment";
 import {MealsService} from "../services/meals.service";
 import { Component, OnInit } from '@angular/core';
 import { Meal } from '../models/meal';
-
+import { NKDatetime } from 'ng2-datetime/ng2-datetime';
 /**
  * This class represents the lazy loaded AboutComponent.
  */
@@ -10,7 +10,8 @@ import { Meal } from '../models/meal';
   moduleId: module.id,
   selector: 'sd-day',
   templateUrl: 'day.component.html',
-  styleUrls: ['day.component.css']
+  styleUrls: ['day.component.css'],
+  directives: [NKDatetime]
 })
 export class DayComponent implements OnInit {
   dayString: string = moment().format('YYYY-MM-DD');
@@ -51,6 +52,7 @@ export class DayComponent implements OnInit {
   showEditMealForm(meal: Meal) {
     this.isNewMealFormVisible = true;
     this.newMeal = Object.assign({}, meal);
+    this.newMeal.time = this.newMeal.momentObj.toDate();
   }
 
   deleteMeal(meal: Meal) {
@@ -62,6 +64,7 @@ export class DayComponent implements OnInit {
   }
 
   addMeal() {
+    this.newMeal.time = this.newMeal.time.toISOString();
     if (this.newMeal.id) {
       this.mealsSerivce.updateMeal(this.newMeal).subscribe(() => {
         this.hideNewMealForm();
