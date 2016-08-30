@@ -1,12 +1,9 @@
 json.data do
-  json.id @meal.id
-  json.type Meal.name
+  json.id @user.id
+  json.type User.name
   json.attributes do
-    json.title @meal.title
-    json.time @meal.time
-    json.calories @meal.calories
-  end
-  json.links do
-    json.self v1_meal_url(@meal)
+    json.email @user.email
+    json.target_calories @user.target_calories
+    json.admin @user.admin
   end
 end

@@ -22,6 +22,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  admin                  :boolean          default(FALSE)
+#  target_calories        :integer          default(2000)
 #
 
 class User < ActiveRecord::Base
@@ -30,4 +31,6 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable#,
           #:confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
+
+  validates :target_calories, presence: true
 end
