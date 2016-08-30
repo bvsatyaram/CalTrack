@@ -1,3 +1,4 @@
+import {UsersComponent} from "./users/users.component";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,8 +9,8 @@ import {MealsService} from "./services/meals.service";
 
 @NgModule({
     imports: [CommonModule, FormsModule],
-    declarations: [TrackerComponent, DayComponent],
-    exports: [TrackerComponent, DayComponent],
+    declarations: [TrackerComponent, DayComponent, UsersComponent],
+    exports: [TrackerComponent, DayComponent, UsersComponent],
     providers: [MealsService]
 })
 
