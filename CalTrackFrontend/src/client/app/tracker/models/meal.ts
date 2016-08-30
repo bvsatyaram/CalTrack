@@ -4,4 +4,5 @@ export interface Meal {
   calories: number;
   momentObj?: any;
   dateString?: string;
+  time?: string;
 }

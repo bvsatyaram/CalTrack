@@ -18,6 +18,7 @@ export class DayComponent implements OnInit {
   caloriesTarget: number = 4000;
   meals: Meal[];
   isNewMealFormVisible: boolean = false;
+  newMeal: Meal;
 
   constructor(private mealsSerivce: MealsService) {}
 
@@ -39,9 +40,16 @@ export class DayComponent implements OnInit {
 
   showNewMealForm() {
     this.isNewMealFormVisible = true;
+    this.newMeal = {title: '', time: '', calories: undefined};
   }
 
   hideNewMealForm() {
     this.isNewMealFormVisible = false;
+  }
+
+  addMeal() {
+    this.mealsSerivce.createMeal(this.newMeal).subscribe(() => {
+      this.hideNewMealForm();
+    });
   }
 }

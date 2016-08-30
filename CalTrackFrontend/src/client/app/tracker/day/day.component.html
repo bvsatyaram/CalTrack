@@ -20,31 +20,31 @@
 </button>
 
 <div id="new-meal-form-container" *ngIf='isNewMealFormVisible'>
-  <form class="form-horizontal">
+  <form class="form-horizontal" role="form" #addMealForm="ngForm" (ngSubmit)="addMeal()">
     <fieldset>
       <legend>Add New Meal</legend>
       <div class="form-group">
         <label for="title" class="col-lg-2 control-label">Title</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" placeholder="Eg. Cheese Burger">
+          <input type="text" class="form-control" placeholder="Eg. Cheese Burger" required name="title" [(ngModel)]="newMeal.title">
         </div>
       </div>
       <div class="form-group">
         <label for="time" class="col-lg-2 control-label">Time</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" placeholder="2016-08-30T11:52:01.000Z">
+          <input type="text" class="form-control" placeholder="2016-08-30T11:52:01.000Z" required name="time" [(ngModel)]="newMeal.time">
         </div>
       </div>
       <div class="form-group">
         <label for="time" class="col-lg-2 control-label"># Calories</label>
         <div class="col-lg-10">
-          <input type="text" class="form-control" placeholder="2000">
+          <input type="text" class="form-control" placeholder="2000" required name="calories" [(ngModel)]="newMeal.calories">
         </div>
       </div>
       <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default" (click)="hideNewMealForm()">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!addMealForm.valid">Submit</button>
       </div>
     </div>
     </fieldset>

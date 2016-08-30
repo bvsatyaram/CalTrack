@@ -1,5 +1,5 @@
 import { Injectable, Inject, EventEmitter } from '@angular/core';
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs";
 import * as moment from "moment";
 import { Meal } from '../models/meal';
@@ -28,9 +28,39 @@ export class MealsService {
     return this.http.get(getMealsUrl)
     .map((res: Response) => {
       return res.json().data.map((obj: any) => {
-        let momentObj = moment(obj.attributes.time);
-        return {id: obj.id, title: obj.attributes.title, momentObj: momentObj, calories: obj.attributes.calories, dateString: momentObj.format('YYYY-MM-DD')}
+        return this.mealObjForDisplay(obj);
       })
+    })
+  }
+
+  mealObjForDisplay(meal: any): Meal {
+    let momentObj = moment(meal.attributes.time);
+
+    return {
+      id: meal.id,
+      title: meal.attributes.title,
+      momentObj: momentObj,
+      calories: meal.attributes.calories,
+      dateString: momentObj.format('YYYY-MM-DD')
+    }
+  }
+
+  createMeal(meal: Meal): Observable<any> {
+    let createMealUrl = `${this.config.dev.apiBaseUrl}/meals`;
+    let body = JSON.stringify({
+      data: {
+        attributes: meal
+      }
+    });
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.post(createMealUrl, body, options)
+    .map((res: Response) => {
+      let data = res.json().data;
+      let createdMeal = this.mealObjForDisplay(data);
+      this.mealsEmitter.emit(this.meals.concat(createdMeal));
+      return {success: true};
     })
   }
 
