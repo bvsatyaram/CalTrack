@@ -1,3 +1,4 @@
+import {AuthHttpService} from "../../shared/services/authHttp.service";
 import { Injectable, Inject, EventEmitter } from '@angular/core';
 import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs";
@@ -12,7 +13,7 @@ export class MealsService {
   activeDayMealsEmitter = new EventEmitter<Meal[]>();
   activeDateString: string = moment().format('YYYY-MM-DD');
 
-  constructor(private http: Http, @Inject('config') private config:any) {
+  constructor(private http: AuthHttpService, @Inject('config') private config:any) {
     this.mealsEmitter.subscribe((meals: Meal[]) => {
       this.meals = meals;
       this.getMealsByDate();

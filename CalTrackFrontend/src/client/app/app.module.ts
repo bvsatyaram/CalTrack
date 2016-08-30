@@ -11,9 +11,10 @@ import { AboutModule } from './+about/about.module';
 import { HomeModule } from './+home/home.module';
 import {TrackerModule} from "./tracker/tracker.module";
 import { SharedModule } from './shared/shared.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), AboutModule, HomeModule, TrackerModule, SharedModule.forRoot()],
+  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), AboutModule, HomeModule, TrackerModule, SharedModule.forRoot(), LoginModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,
