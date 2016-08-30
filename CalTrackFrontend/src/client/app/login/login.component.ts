@@ -23,7 +23,7 @@ export class LoginComponent {
 
     this.loginService.loginUser(user)
     .subscribe( authenticatedUser => {
-      this.currentUserService.setCurrentUser({email: authenticatedUser.user.email});
+      this.currentUserService.setCurrentUser({email: authenticatedUser.user.email, admin: authenticatedUser.user.admin});
       if(this.currentUserService.redirectUrl && this.currentUserService.redirectUrl.trim() !== '') {
         this.router.navigate([this.currentUserService.redirectUrl]);
       } else {

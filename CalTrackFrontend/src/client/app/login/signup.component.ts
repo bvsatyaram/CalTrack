@@ -31,7 +31,7 @@ export class SignupComponent {
 
     this.signupService.signupUser(user)
     .subscribe( (authenticatedUser:User) => {
-      this.currentUserService.setCurrentUser({email: authenticatedUser.email});
+      this.currentUserService.setCurrentUser({email: authenticatedUser.email, admin: authenticatedUser.admin});
       if(this.currentUserService.redirectUrl && this.currentUserService.redirectUrl.trim() !== '') {
         this.router.navigate([this.currentUserService.redirectUrl]);
       } else {
