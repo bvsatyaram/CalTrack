@@ -17,6 +17,7 @@ export class DayComponent implements OnInit {
   caloriesCount: number = 3600;
   caloriesTarget: number = 4000;
   meals: Meal[];
+  isNewMealFormVisible: boolean = false;
 
   constructor(private mealsSerivce: MealsService) {}
 
@@ -34,5 +35,13 @@ export class DayComponent implements OnInit {
   getNextDaysMeals() {
     this.dayString = moment(this.dayString).add(1, 'day').format('YYYY-MM-DD');
     this.mealsSerivce.setAciveDate(this.dayString);
+  }
+
+  showNewMealForm() {
+    this.isNewMealFormVisible = true;
+  }
+
+  hideNewMealForm() {
+    this.isNewMealFormVisible = false;
   }
 }
