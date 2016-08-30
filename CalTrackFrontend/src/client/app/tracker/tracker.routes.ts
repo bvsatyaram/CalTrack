@@ -1,3 +1,4 @@
+import {SettingsComponent} from "./settings/settings.component";
 import {UsersComponent} from "./users/users.component";
 import {AuthGuard} from "../shared/services/auth-guard.service";
 import { Route } from '@angular/router';
@@ -12,6 +13,11 @@ export const TrackerRoutes: Route[] = [
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
     canActivate: [AuthGuard]
   }
 ];

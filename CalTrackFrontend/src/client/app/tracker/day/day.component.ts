@@ -1,3 +1,4 @@
+import {CurrentUserService} from "../../shared/services/current-user.service";
 import * as moment from "moment";
 import {MealsService} from "../services/meals.service";
 import { Component, OnInit } from '@angular/core';
@@ -15,13 +16,13 @@ import { NKDatetime } from 'ng2-datetime/ng2-datetime';
 })
 export class DayComponent implements OnInit {
   dayString: string = moment().format('YYYY-MM-DD');
-  caloriesCount: number = 3600;
-  caloriesTarget: number = 4000;
+  caloriesCount: number = 0;
+  caloriesTarget: number;
   meals: Meal[];
   isNewMealFormVisible: boolean = false;
   newMeal: Meal;
 
-  constructor(private mealsSerivce: MealsService) {}
+  constructor(private currentUserService: CurrentUserService, private mealsSerivce: MealsService) {}
 
   ngOnInit() {
     this.mealsSerivce.activeDayMealsEmitter.subscribe((meals: Meal[]) => {
@@ -32,6 +33,7 @@ export class DayComponent implements OnInit {
       })
       this.caloriesCount = totalCalories;
     })
+    this.caloriesTarget = this.currentUserService.getCurrentUser().target_calories;
   }
 
   getPreviousDaysMeals() {

@@ -1,0 +1,16 @@
+<form class="form-horizontal" role="form" #userSettingsForm="ngForm" (ngSubmit)="submitSettings()">
+  <fieldset>
+    <legend>My Settings</legend>
+    <div class="form-group">
+      <label for="target_calories" class="col-lg-2 control-label">Expected calories per day (Cal)</label>
+      <div class="col-lg-10">
+        <input type="number" class="form-control" placeholder="Eg. 2000" required name="target_calories" [(ngModel)]="user.target_calories">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary" [disabled]="!userSettingsForm.valid">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

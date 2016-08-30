@@ -1,3 +1,4 @@
+import {SettingsComponent} from "./settings/settings.component";
 import {UsersComponent} from "./users/users.component";
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,8 +10,8 @@ import {MealsService} from "./services/meals.service";
 
 @NgModule({
     imports: [CommonModule, FormsModule],
-    declarations: [TrackerComponent, DayComponent, UsersComponent],
-    exports: [TrackerComponent, DayComponent, UsersComponent],
+    declarations: [TrackerComponent, DayComponent, UsersComponent, SettingsComponent],
+    exports: [TrackerComponent, DayComponent, UsersComponent, SettingsComponent],
     providers: [MealsService]
 })
 
