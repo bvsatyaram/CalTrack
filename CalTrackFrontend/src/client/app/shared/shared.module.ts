@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { ToolbarComponent } from './toolbar/index';
-import { NameListService } from './name-list/index';
 import { AuthHttpService, AuthenticationService, CurrentUserService, AuthGuard } from './services/index';
 
 /**
@@ -21,7 +20,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [NameListService, AuthHttpService, CurrentUserService, AuthenticationService, AuthGuard]
+      providers: [AuthHttpService, CurrentUserService, AuthenticationService, AuthGuard]
     };
   }
 }

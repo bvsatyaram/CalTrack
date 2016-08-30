@@ -4,7 +4,7 @@ import { TrackerComponent } from './index';
 
 export const TrackerRoutes: Route[] = [
   {
-    path: 'tracker',
+    path: '',
     component: TrackerComponent,
     canActivate: [AuthGuard]
   }
