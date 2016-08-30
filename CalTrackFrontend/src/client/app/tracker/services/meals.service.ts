@@ -64,6 +64,39 @@ export class MealsService {
     })
   }
 
+  updateMeal(meal: Meal): Observable<any> {
+    let updateMealUrl = `${this.config.dev.apiBaseUrl}/meals/${meal.id}`;
+    let body = JSON.stringify({
+      data: {
+        attributes: meal
+      }
+    });
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.patch(updateMealUrl, body, options)
+    .map((res: Response) => {
+      let data = res.json().data;
+      let updatedMeal = this.mealObjForDisplay(data);
+      this.mealsEmitter.emit(this.meals.map((oldMeal) => {
+        return (oldMeal.id == updatedMeal.id) ? updatedMeal : oldMeal;
+      }));
+      return {success: true};
+    })
+  }
+
+  destroyMeal(meal: Meal): Observable<any> {
+    let destroyMealUrl = `${this.config.dev.apiBaseUrl}/meals/${meal.id}`;
+
+    return this.http.delete(destroyMealUrl, meal)
+    .map((res: Response) => {
+      this.mealsEmitter.emit(this.meals.filter(oldMeal => {
+        return oldMeal.id != meal.id;
+      }))
+      return {success: true}
+    })
+  }
+
   getMealsByDate(): void {
     let filteredMeals = this.meals.filter(meal => {
       return meal.dateString === this.activeDateString;

@@ -43,13 +43,28 @@ export class DayComponent implements OnInit {
     this.newMeal = {title: '', time: '', calories: undefined};
   }
 
+  showEditMealForm(meal: Meal) {
+    this.isNewMealFormVisible = true;
+    this.newMeal = Object.assign({}, meal);
+  }
+
+  deleteMeal(meal: Meal) {
+    this.mealsSerivce.destroyMeal(meal).subscribe(() => {});
+  }
+
   hideNewMealForm() {
     this.isNewMealFormVisible = false;
   }
 
   addMeal() {
-    this.mealsSerivce.createMeal(this.newMeal).subscribe(() => {
-      this.hideNewMealForm();
-    });
+    if (this.newMeal.id) {
+      this.mealsSerivce.updateMeal(this.newMeal).subscribe(() => {
+        this.hideNewMealForm();
+      });
+    } else {
+      this.mealsSerivce.createMeal(this.newMeal).subscribe(() => {
+        this.hideNewMealForm();
+      });
+    }
   }
 }
