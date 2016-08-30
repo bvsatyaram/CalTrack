@@ -25,6 +25,11 @@ export class DayComponent implements OnInit {
   ngOnInit() {
     this.mealsSerivce.activeDayMealsEmitter.subscribe((meals: Meal[]) => {
       this.meals = meals;
+      let totalCalories = 0;
+      meals.map((meal) => {
+        totalCalories += meal.calories;
+      })
+      this.caloriesCount = totalCalories;
     })
   }
 
