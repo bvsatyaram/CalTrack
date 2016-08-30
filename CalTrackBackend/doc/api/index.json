@@ -1,0 +1,16 @@
+{
+  "resources": [
+    {
+      "name": "Meals",
+      "examples": [
+        {
+          "description": "Listing meals",
+          "link": "meals/listing_meals.json",
+          "groups": "all",
+          "route": "/v1/meals",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}
