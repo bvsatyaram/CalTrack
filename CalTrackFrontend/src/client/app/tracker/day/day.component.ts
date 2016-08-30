@@ -25,4 +25,14 @@ export class DayComponent implements OnInit {
       this.meals = meals;
     })
   }
+
+  getPreviousDaysMeals() {
+    this.dayString = moment(this.dayString).subtract(1, 'day').format('YYYY-MM-DD');
+    this.mealsSerivce.setAciveDate(this.dayString);
+  }
+
+  getNextDaysMeals() {
+    this.dayString = moment(this.dayString).add(1, 'day').format('YYYY-MM-DD');
+    this.mealsSerivce.setAciveDate(this.dayString);
+  }
 }

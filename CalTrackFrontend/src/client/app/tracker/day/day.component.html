@@ -1,7 +1,7 @@
 <h2>
-  <a href=""><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+  <a (click)="getPreviousDaysMeals()"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
   {{dayString}}
-  <a href=""><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+  <a (click)="getNextDaysMeals()"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 </h2>
 
 <div class="total-calories">{{caloriesCount}} of {{caloriesTarget}}</div>

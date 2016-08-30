@@ -41,4 +41,9 @@ export class MealsService {
 
     this.activeDayMealsEmitter.emit(filteredMeals);
   }
+
+  setAciveDate(dateString: string): void {
+    this.activeDateString = dateString;
+    this.getMealsByDate();
+  }
 }
