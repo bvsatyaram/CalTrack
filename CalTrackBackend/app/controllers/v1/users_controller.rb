@@ -22,7 +22,7 @@ class V1::UsersController < V1::BaseController
   private
 
   def fetch_user
-    @user = Meal.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def save_user
