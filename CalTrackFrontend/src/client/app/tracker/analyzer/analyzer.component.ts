@@ -37,12 +37,12 @@ export class CalAnalyzerComponent implements OnInit {
   }
 
   analyzeCalories() {
-    let secondsStart = this.secondsFromBeginningOfDay(this.fromTime);
-    let secondsEnd = this.secondsFromBeginningOfDay(this.toTime);
+    let secondsStart = this.secondsFromBeginningOfDay(this.fromTime.toISOString());
+    let secondsEnd = this.secondsFromBeginningOfDay(this.toTime.toISOString());
     let filteredMeals = this.meals.filter((meal) => {
-      let seconds = this.secondsFromBeginningOfDay(meal.time);
-      return (meal.momentObj.isSameOrAfter(this.fromDate) &&
-              meal.momentObj.isSameOrBefore(this.toDate) &&
+      let seconds = this.secondsFromBeginningOfDay(meal.momentObj.toDate().toISOString());
+      return (meal.momentObj.isSameOrAfter(this.fromDate.toISOString()) &&
+              meal.momentObj.isSameOrBefore(this.toDate.toISOString()) &&
               (seconds >= secondsStart) &&
               (seconds <= secondsEnd))
 
@@ -60,8 +60,9 @@ export class CalAnalyzerComponent implements OnInit {
     this.averageCals = Math.floor(averageCals);
   }
 
-  secondsFromBeginningOfDay(time: Date): number {
+  secondsFromBeginningOfDay(time: string): number {
     let momentObj = moment(time);
-    return momentObj.diff(momentObj.startOf('day'), 'seconds');
+    let momentAtStart = moment(time).startOf('day');
+    return momentObj.diff(momentAtStart, 'seconds');
   }
 }
