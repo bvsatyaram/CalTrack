@@ -1,6 +1,27 @@
 <div id="tracker">
   <h1>My Tracker</h1>
   <sd-day></sd-day>
+  <div class="clearfix separator"></div>
   <sd-add-meal></sd-add-meal>
-  <div class="clearfix"></div>
+  <div class="clearfix separator"></div>
+  <div class="clearfix separator"></div>
+
+  <div class='tabs-container'>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#all-meals" aria-controls="all-meals" role="tab" data-toggle="tab">All Meals</a></li>
+      <li role="presentation"><a href="#filter-meals" aria-controls="filter-meals" role="tab" data-toggle="tab">Filter Meals</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="all-meals">
+        All Meals
+      </div>
+      <div role="tabpanel" class="tab-pane" id="filter-meals">
+        Filtered Meals
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix separator"></div>
 </div>

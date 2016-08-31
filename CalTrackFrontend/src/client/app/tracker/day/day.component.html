@@ -41,10 +41,10 @@
 
 
 
-<button class="pull-right btn btn-success" (click)="showNewMealForm()" *ngIf='!isNewMealFormVisible'>
+<a class="pull-right btn btn-success btn-block btn-lg" (click)="showNewMealForm()" *ngIf='!isNewMealFormVisible'>
   <i class="fa fa-plus" aria-hidden="true"></i>
   Add Meal
-</button>
+</a>
 
 <div id="new-meal-form-container" class="well" *ngIf='isNewMealFormVisible'>
   <form class="form-horizontal" role="form" #addMealForm="ngForm" (ngSubmit)="addMeal()">
