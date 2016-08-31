@@ -21,7 +21,6 @@ export class CalAnalyzerComponent implements OnInit {
   toTime: Date;
   meals: Meal[];
   averageCals: number = 0;
-  isAverageVisible: boolean = false;
 
   constructor(private mealsSerivce: MealsService) {}
 
@@ -33,19 +32,19 @@ export class CalAnalyzerComponent implements OnInit {
     // this.caloriesTarget = this.currentUserService.getCurrentUser().target_calories;
     this.mealsSerivce.mealsEmitter.subscribe((meals: Meal[]) => {
       this.meals = meals;
+      this.analyzeCalories();
     });
-
   }
 
   analyzeCalories() {
-    let secondsFromBeginningOfDayStart = this.secondsFromBeginningOfDay(moment(this.fromTime));
-    let secondsFromBeginningOfDayEnd = this.secondsFromBeginningOfDay(moment(this.toTime));
+    let secondsStart = this.secondsFromBeginningOfDay(this.fromTime);
+    let secondsEnd = this.secondsFromBeginningOfDay(this.toTime);
     let filteredMeals = this.meals.filter((meal) => {
-      let secondsFromBeginningOfDay = meal.momentObj.diff(meal.momentObj.startOf("day"), "seconds");
+      let seconds = this.secondsFromBeginningOfDay(meal.time);
       return (meal.momentObj.isSameOrAfter(this.fromDate) &&
               meal.momentObj.isSameOrBefore(this.toDate) &&
-              (secondsFromBeginningOfDay >= secondsFromBeginningOfDayStart) &&
-              (secondsFromBeginningOfDay <= secondsFromBeginningOfDayEnd))
+              (seconds >= secondsStart) &&
+              (seconds <= secondsEnd))
 
     });
 
@@ -54,13 +53,15 @@ export class CalAnalyzerComponent implements OnInit {
       averageCals += meal.calories;
     }
 
-    averageCals /= filteredMeals.length;
+    if (filteredMeals.length > 0) {
+      averageCals /= filteredMeals.length;
+    }
 
     this.averageCals = Math.floor(averageCals);
-    this.isAverageVisible = true;
   }
 
-  secondsFromBeginningOfDay(momentObj: any): number {
+  secondsFromBeginningOfDay(time: Date): number {
+    let momentObj = moment(time);
     return momentObj.diff(momentObj.startOf('day'), 'seconds');
   }
 }
