@@ -9,10 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { TrackerComponent } from './tracker.component';
 import { DayComponent } from "./day/day.component";
 import {MealsService} from "./services/meals.service";
-
+import {UiSwitchModule} from 'angular2-ui-switch';
 
 @NgModule({
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FormsModule, UiSwitchModule],
     declarations: [TrackerComponent, DayComponent, UsersComponent, SettingsComponent, TrackerChartComponent, CalAnalyzerComponent],
     exports: [TrackerComponent, DayComponent, UsersComponent, SettingsComponent, TrackerChartComponent, CalAnalyzerComponent],
     providers: [MealsService, UsersService]

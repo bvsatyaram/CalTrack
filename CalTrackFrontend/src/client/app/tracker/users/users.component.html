@@ -40,13 +40,13 @@
       <div class="form-group" *ngIf='canChangeUserRole()'>
         <label for="time" class="col-lg-2 control-label">Admin</label>
         <div class="col-lg-10">
-          <input type="checkbox" name="admin" [(ngModel)]="activeUser.admin">
+          <ui-switch color='#2C3E50' name="admin" [(ngModel)]="activeUser.admin"></ui-switch>
         </div>
       </div>
       <div class="form-group" *ngIf='canChangeUserRole()'>
         <label for="time" class="col-lg-2 control-label">Manager</label>
         <div class="col-lg-10">
-          <input type="checkbox" name="manager" [(ngModel)]="activeUser.manager">
+          <ui-switch color='#2C3E50' name="manager" [(ngModel)]="activeUser.manager"></ui-switch>
         </div>
       </div>
       <div class="form-group">
