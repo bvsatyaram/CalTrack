@@ -1,3 +1,4 @@
+import {CalAnalyzerComponent} from "./analyzer/analyzer.component";
 import {TrackerChartComponent} from "./chart/chart.component";
 import {SettingsComponent} from "./settings/settings.component";
 import {UsersComponent} from "./users/users.component";
@@ -11,8 +12,8 @@ import {MealsService} from "./services/meals.service";
 
 @NgModule({
     imports: [CommonModule, FormsModule],
-    declarations: [TrackerComponent, DayComponent, UsersComponent, SettingsComponent, TrackerChartComponent],
-    exports: [TrackerComponent, DayComponent, UsersComponent, SettingsComponent, TrackerChartComponent],
+    declarations: [TrackerComponent, DayComponent, UsersComponent, SettingsComponent, TrackerChartComponent, CalAnalyzerComponent],
+    exports: [TrackerComponent, DayComponent, UsersComponent, SettingsComponent, TrackerChartComponent, CalAnalyzerComponent],
     providers: [MealsService]
 })
 

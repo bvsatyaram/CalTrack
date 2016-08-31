@@ -1,0 +1,39 @@
+<form class="form-horizontal" role="form" #analyzeCaloriesForm="ngForm" (ngSubmit)="analyzeCalories()">
+  <fieldset>
+    <legend>Add New Meal</legend>
+    <div class="form-group">
+      <label for="fromDate" class="col-lg-2 control-label">From Date</label>
+      <div class="col-lg-10">
+        <datetime [timepicker]='false' [(ngModel)]='fromDate' name='fromDate'></datetime>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="toDate" class="col-lg-2 control-label">To Date</label>
+      <div class="col-lg-10">
+        <datetime [timepicker]='false' [(ngModel)]='toDate' name='toDate'></datetime>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fromTime" class="col-lg-2 control-label">From Time</label>
+      <div class="col-lg-10">
+      <datetime [datepicker]='false' [(ngModel)]='fromTime' name='fromTime'></datetime>
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="toTime" class="col-lg-2 control-label">To Time</label>
+      <div class="col-lg-10">
+        <datetime [datepicker]='false' [(ngModel)]='toTime' name='toTime'></datetime>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-success" [disabled]="!analyzeCaloriesForm.valid">Analyze</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<div class="well" *ngIf='isAverageVisible' role="alert">
+  The average calories taken on the specified duration are:
+  <b>{{averageCals}} Cal</b>
+</div>

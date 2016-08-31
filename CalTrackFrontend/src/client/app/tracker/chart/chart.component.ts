@@ -3,7 +3,6 @@ import * as moment from "moment";
 import {MealsService} from "../services/meals.service";
 import { Component, OnInit } from '@angular/core';
 import { Meal } from '../models/meal';
-import { NKDatetime } from 'ng2-datetime/ng2-datetime';
 declare var Chartist: any;
 
 /**
@@ -13,8 +12,7 @@ declare var Chartist: any;
   moduleId: module.id,
   selector: 'sd-tracker-chart',
   templateUrl: 'chart.component.html',
-  styleUrls: ['chart.component.css'],
-  directives: [NKDatetime]
+  styleUrls: ['chart.component.css']
 })
 export class TrackerChartComponent implements OnInit {
   caloriesTarget: number;
