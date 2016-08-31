@@ -4,5 +4,6 @@ export interface User {
   password?: String;
   password_confirmation?: String;
   admin?: boolean;
+  manager?: boolean;
   target_calories?: number;
 }

@@ -1,1 +1,60 @@
-<h1>Users</h1>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">
+      User Management
+    </h3>
+  </div>
+  <div class="panel-body">
+    <section id="users" class="row">
+      <div class="col-md-3 col-sm-4 col-xs-6" *ngFor="let user of users">
+        <div class="user-detail well text-center">
+          <h4>{{user.email}}</h4>
+          <p class="calories">
+            <i class="fa fa-fire" aria-hidden="true"></i>
+            Target: {{user.target_calories}} Cal
+          </p>
+          <div class="badges">
+            <span class="badge" *ngIf='user.admin'>Admin</span>
+            <span class="badge" *ngIf='user.manager'>Manager</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" (click)="showEditUserForm(user)" *ngIf='canEditUser()'><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <a class="btn btn-danger" (click)="deleteUser(user)" *ngIf='canDeleteUser()'><i class="fa fa-trash" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="edit-user-form-container" class="well" *ngIf='activeUser'>
+  <form class="form-horizontal" role="form" #editUserForm="ngForm" (ngSubmit)="updateUser()">
+    <fieldset>
+      <legend>Edit User ({{activeUser.email}})</legend>
+      <div class="form-group">
+        <label for="target_calories" class="col-lg-2 control-label">Target Calories</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" placeholder="2000" required name="target_calories" [(ngModel)]="activeUser.target_calories">
+        </div>
+      </div>
+      <div class="form-group" *ngIf='canChangeUserRole()'>
+        <label for="time" class="col-lg-2 control-label">Admin</label>
+        <div class="col-lg-10">
+          <input type="checkbox" name="admin" [(ngModel)]="activeUser.admin">
+        </div>
+      </div>
+      <div class="form-group" *ngIf='canChangeUserRole()'>
+        <label for="time" class="col-lg-2 control-label">Manager</label>
+        <div class="col-lg-10">
+          <input type="checkbox" name="manager" [(ngModel)]="activeUser.manager">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="reset" class="btn btn-default" (click)="hideEditUserForm()">Cancel</button>
+          <button type="submit" class="btn btn-success" [disabled]="!editUserForm.valid">Submit</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
