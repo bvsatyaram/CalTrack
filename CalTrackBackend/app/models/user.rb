@@ -23,6 +23,7 @@
 #  updated_at             :datetime         not null
 #  admin                  :boolean          default(FALSE)
 #  target_calories        :integer          default(2000)
+#  manager                :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
