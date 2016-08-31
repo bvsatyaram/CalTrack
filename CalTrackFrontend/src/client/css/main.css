@@ -62,6 +62,19 @@ button:hover {
   background-color: #28739e;
 }
 
+/*Chartist Overrides*/
+.ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
+    stroke: #f1c40f;
+}
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-donut {
+    stroke: #3498db;
+}
+#cal-chart {
+    margin: auto;
+    width: 80%;
+    height: 600px;
+}
+
 /* Custom Styles */
 .bootstrap-timepicker-widget table td input {
   width: 3em;
