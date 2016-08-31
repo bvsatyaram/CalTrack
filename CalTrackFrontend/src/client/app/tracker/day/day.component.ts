@@ -36,6 +36,10 @@ export class DayComponent implements OnInit {
     this.caloriesTarget = this.currentUserService.getCurrentUser().target_calories;
   }
 
+  areCaloriesExceeded() {
+    return this.caloriesCount > this.caloriesTarget
+  }
+
   getPreviousDaysMeals() {
     this.dayString = moment(this.dayString).subtract(1, 'day').format('YYYY-MM-DD');
     this.mealsSerivce.setAciveDate(this.dayString);
@@ -48,7 +52,8 @@ export class DayComponent implements OnInit {
 
   showNewMealForm() {
     this.isNewMealFormVisible = true;
-    this.newMeal = {title: '', time: '', calories: undefined};
+    let time = moment(this.mealsSerivce.activeDateString).add(10, 'hours').toDate();
+    this.newMeal = {title: '', time: time, calories: undefined};
   }
 
   showEditMealForm(meal: Meal) {
