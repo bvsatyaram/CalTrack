@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CalTrack API</title>
-  <meta charset="utf-8">
-  <style>
-    
+  <head>
+    <title>Meals API</title>
+    <meta charset="utf-8">
+    <style>
+      
 body {
   font-family: Helvetica,Arial,sans-serif;
   font-size: 13px;
@@ -39,7 +39,7 @@ pre {
 
 td.required .name:after {
   float: right;
-  content: &quot;required&quot;;
+  content: "required";
   font-weight: normal;
   color: #F08080;
 }
@@ -102,27 +102,54 @@ table th, table td {
   text-align: left;
 }
 
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>CalTrack API</h1>
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Meals API</h1>
 
-  <div class="article">
-    <h2>Meals</h2>
+      <div class="article">
+        <h2>Create a Meal</h2>
+        <h3>POST /v1/meals</h3>
 
-    <ul>
-      <li>
-        <a href="meals/create_a_meal.html">Create a Meal</a>
-      </li>
-      <li>
-        <a href="meals/listing_of_meals.html">Listing of Meals</a>
-      </li>
-      <li>
-        <a href="meals/show_a_meal.html">Show a Meal</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</body>
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">data[attributes][title]</span>
+                </td>
+                <td>
+                  <span class="description">CheeseBurger</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[attributes][time]</span>
+                </td>
+                <td>
+                  <span class="description">2016-09-01T13:40:33+05:30</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">data[attributes][calories]</span>
+                </td>
+                <td>
+                  <span class="description">200</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+      </div>
+    </div>
+  </body>
 </html>

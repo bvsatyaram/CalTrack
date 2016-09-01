@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meals API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Meals API</h1>
+
+      <div class="article">
+        <h2>Listing of Meals</h2>
+        <h3>GET /v1/meals</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Accept: application/json
+Content-Type: application/json
+Access-Token: c-CxjGlm2L08D9oSDnfEtw
+Token-Type: Bearer
+Client: p8CfoHDfHsHLseWUEfSRJg
+Expiry: 1473927536
+Uid: user@caltrack.com
+Host: example.org
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /v1/meals</pre>
+
+
+
+            <h4>cURL</h4>
+            <pre class="request curl">curl &quot;http://localhost:3000/v1/meals&quot; -X GET \
+	-H &quot;Accept: application/json&quot; \
+	-H &quot;Content-Type: application/json&quot; \
+	-H &quot;Access-Token: c-CxjGlm2L08D9oSDnfEtw&quot; \
+	-H &quot;Token-Type: Bearer&quot; \
+	-H &quot;Client: p8CfoHDfHsHLseWUEfSRJg&quot; \
+	-H &quot;Expiry: 1473927536&quot; \
+	-H &quot;Uid: user@caltrack.com&quot; \
+	-H &quot;Host: example.org&quot; \
+	-H &quot;Cookie: &quot;</pre>
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+access-token: c-CxjGlm2L08D9oSDnfEtw
+token-type: Bearer
+client: p8CfoHDfHsHLseWUEfSRJg
+expiry: 1473927536
+uid: user@caltrack.com
+ETag: W/&quot;d18fb6f225f10c4d2aa3882b3e1e0a40&quot;
+Cache-Control: max-age=0, private, must-revalidate
+Set-Cookie: _CalTrackBackend_session=ZzJndTFvYStFMk90czFsbmhyYldsb2hNVXo0Tkl1QVVYV1VIbFRZdmR6U3R2WjBDZU95Q2dEVzFsUWpDVE1SY0hRcm9JdjRRbDZpZGhyYXo5UlFIOEo2NnlMTFVXL3BiaW9BdTVRN25yWWZkaTlQcDRIVS9ZRHY4b3hUQWhDSjlZQklTcWtVZENHY3dBYUl2ZXJhd0hsdGRBS2NhVmxQUzM4TWN4K3BRdUh1WHE0c3pxU3pUVVpGbkNIZWNsb2w4MkxrTlhCcThWOENLZWdrOFNoZ0tyK0RzS09QMHp6MTd4Qk52RVZ6MXIvRmEwNWRHZzVDREpEdy9oR2pYZVZyNFBIWFBtZERTVmFVU21JRUloaEUydkE3UFJUeC9Ibm56ei9URWIxT1EybHRhcXdsRmM2MUJ1cy9IcDcyRlRqSUZBNGZ6UkthZEVDalJILzA4MHdJUjkzNTBjV2tXaTJIRnJWWlp4VHFJY0RRbEkvTlM5SFd3NUVUU2NQN0d1b3BzY1A5L244Q3p0dSt0YU5rWEhTVFN5RnAzTUExcDJIZzRqNmlCcDVTVHNsTjNtYXVUdGlqZDBFa3Q2UzlIZjhQUi0tUEJNL1RwSGo1akVUV2RJVFZvTWZBUT09--59b58448c307831aed02794dd746d0497146adf7; path=/; HttpOnly
+X-Request-Id: d9e50ee5-6a70-4d82-b43f-c5d209b68e82
+X-Runtime: 0.122846
+Content-Length: 5030</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 3,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Trappistes Rochefort 10&quot;,
+        &quot;time&quot;: &quot;2016-08-23T13:18:25.000Z&quot;,
+        &quot;calories&quot;: 100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/3&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Two Hearted Ale&quot;,
+        &quot;time&quot;: &quot;2016-08-24T06:30:23.000Z&quot;,
+        &quot;calories&quot;: 700
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/4&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Chimay Grande Réserve&quot;,
+        &quot;time&quot;: &quot;2016-08-23T16:56:18.000Z&quot;,
+        &quot;calories&quot;: 1100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/5&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;St. Bernardus Abt 12&quot;,
+        &quot;time&quot;: &quot;2016-08-23T14:52:54.000Z&quot;,
+        &quot;calories&quot;: 400
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/6&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Hercules Double IPA&quot;,
+        &quot;time&quot;: &quot;2016-08-28T04:32:17.000Z&quot;,
+        &quot;calories&quot;: 200
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/7&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 8,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Old Rasputin Russian Imperial Stout&quot;,
+        &quot;time&quot;: &quot;2016-08-30T03:10:30.000Z&quot;,
+        &quot;calories&quot;: 600
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/8&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 9,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Chocolate St&quot;,
+        &quot;time&quot;: &quot;2016-08-27T04:10:08.000Z&quot;,
+        &quot;calories&quot;: 1000
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/9&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 10,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Nugget Nectar&quot;,
+        &quot;time&quot;: &quot;2016-08-24T19:17:26.000Z&quot;,
+        &quot;calories&quot;: 1500
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/10&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 11,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Westmalle Trappist Tripel&quot;,
+        &quot;time&quot;: &quot;2016-08-26T05:02:58.000Z&quot;,
+        &quot;calories&quot;: 1300
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/11&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 12,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Bourbon County Stout&quot;,
+        &quot;time&quot;: &quot;2016-08-23T04:26:01.000Z&quot;,
+        &quot;calories&quot;: 1100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/12&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 13,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Edmund Fitzgerald Porter&quot;,
+        &quot;time&quot;: &quot;2016-08-23T13:24:59.000Z&quot;,
+        &quot;calories&quot;: 600
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/13&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 14,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Trois Pistoles&quot;,
+        &quot;time&quot;: &quot;2016-08-25T16:36:39.000Z&quot;,
+        &quot;calories&quot;: 600
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/14&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 15,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Trois Pistoles&quot;,
+        &quot;time&quot;: &quot;2016-08-30T08:02:36.000Z&quot;,
+        &quot;calories&quot;: 800
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/15&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 16,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Storm King Stout&quot;,
+        &quot;time&quot;: &quot;2016-08-31T23:13:33.000Z&quot;,
+        &quot;calories&quot;: 300
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/16&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 17,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Schneider Aventinus &quot;,
+        &quot;time&quot;: &quot;2016-08-30T17:42:28.000Z&quot;,
+        &quot;calories&quot;: 1500
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/17&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 18,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Bourbon County Stout&quot;,
+        &quot;time&quot;: &quot;2016-08-27T02:54:41.000Z&quot;,
+        &quot;calories&quot;: 100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/18&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 19,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Duvel&quot;,
+        &quot;time&quot;: &quot;2016-08-26T23:45:20.000Z&quot;,
+        &quot;calories&quot;: 200
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/19&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 20,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Yeti Imperial Stout&quot;,
+        &quot;time&quot;: &quot;2016-08-30T21:35:01.000Z&quot;,
+        &quot;calories&quot;: 100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/20&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 21,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Founders Kentucky Breakfast &quot;,
+        &quot;time&quot;: &quot;2016-08-31T08:08:04.000Z&quot;,
+        &quot;calories&quot;: 1200
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/21&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 22,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Storm King Stout&quot;,
+        &quot;time&quot;: &quot;2016-08-29T00:38:59.000Z&quot;,
+        &quot;calories&quot;: 100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/22&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 23,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Celebrator Doppelbock&quot;,
+        &quot;time&quot;: &quot;2016-08-30T10:37:11.000Z&quot;,
+        &quot;calories&quot;: 1000
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/23&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 24,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Maharaj&quot;,
+        &quot;time&quot;: &quot;2016-08-28T21:55:15.000Z&quot;,
+        &quot;calories&quot;: 1400
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/24&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 25,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Pliny The Elder&quot;,
+        &quot;time&quot;: &quot;2016-08-26T15:56:39.000Z&quot;,
+        &quot;calories&quot;: 1100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/25&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 26,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Maudite&quot;,
+        &quot;time&quot;: &quot;2016-08-25T04:22:15.000Z&quot;,
+        &quot;calories&quot;: 100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/26&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 27,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Westmalle Trappist Tripel&quot;,
+        &quot;time&quot;: &quot;2016-08-30T04:10:16.000Z&quot;,
+        &quot;calories&quot;: 1400
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/27&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 28,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Maharaj&quot;,
+        &quot;time&quot;: &quot;2016-08-30T13:34:27.000Z&quot;,
+        &quot;calories&quot;: 1400
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/28&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 29,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Péché Mortel&quot;,
+        &quot;time&quot;: &quot;2016-08-27T12:03:24.000Z&quot;,
+        &quot;calories&quot;: 1100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/29&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 30,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Alpha King Pale Ale&quot;,
+        &quot;time&quot;: &quot;2016-08-31T18:16:42.000Z&quot;,
+        &quot;calories&quot;: 1400
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/30&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 31,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Old Rasputin Russian Imperial Stout&quot;,
+        &quot;time&quot;: &quot;2016-08-31T00:40:40.000Z&quot;,
+        &quot;calories&quot;: 1500
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/31&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 32,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Yeti Imperial Stout&quot;,
+        &quot;time&quot;: &quot;2016-08-23T01:58:03.000Z&quot;,
+        &quot;calories&quot;: 100
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/32&quot;
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

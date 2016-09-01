@@ -109,8 +109,8 @@ table th, table td {
       <h1>Meals API</h1>
 
       <div class="article">
-        <h2>Listing meals</h2>
-        <h3>GET /v1/meals</h3>
+        <h2>Show a Meal</h2>
+        <h3>GET /v1/meals/:id</h3>
 
 
 
@@ -119,18 +119,28 @@ table th, table td {
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
 Content-Type: application/json
+Access-Token: IKxre3slVejiu1oDW-shaw
+Token-Type: Bearer
+Client: JmRUnAjEh3p44B4J8l7IHg
+Expiry: 1473927537
+Uid: user@caltrack.com
 Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /v1/meals</pre>
+          <pre class="request route highlight">GET /v1/meals/3</pre>
 
 
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;http://localhost:3000/v1/meals&quot; -X GET \
+            <pre class="request curl">curl &quot;http://localhost:3000/v1/meals/3&quot; -X GET \
 	-H &quot;Accept: application/json&quot; \
 	-H &quot;Content-Type: application/json&quot; \
+	-H &quot;Access-Token: IKxre3slVejiu1oDW-shaw&quot; \
+	-H &quot;Token-Type: Bearer&quot; \
+	-H &quot;Client: JmRUnAjEh3p44B4J8l7IHg&quot; \
+	-H &quot;Expiry: 1473927537&quot; \
+	-H &quot;Uid: user@caltrack.com&quot; \
 	-H &quot;Host: example.org&quot; \
 	-H &quot;Cookie: &quot;</pre>
 
@@ -140,41 +150,33 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;cca983d7719f59ffa8408fe62957ed65&quot;
+access-token: IKxre3slVejiu1oDW-shaw
+token-type: Bearer
+client: JmRUnAjEh3p44B4J8l7IHg
+expiry: 1473927537
+uid: user@caltrack.com
+ETag: W/&quot;3f6149f4fe0ffd5ae8dfba52503d47f2&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: d554ebf7-5dbd-4b63-bc1d-77b9b9a9d0de
-X-Runtime: 0.031528
-Content-Length: 322</pre>
+Set-Cookie: _CalTrackBackend_session=Q1JFZEdIcDhqRmJrcnNIK3F5V0FmR3dpUDBxcGdqaDNOQXQxOFNaVEdPTmhCUUt4UkJWZ2g2VE1tenZhdC9xMzB5dW9EV25sU3d3dUVHQ2ozUXZXTUZnVm8vdmp5bXJHUTF6ZmVtUlZaM0lCVnpXL3FRMTlJc1FWSEZYMWNReTVlWW8vWWpKL3laTzZrdkZZZ01hZyt6THFWV1ZiU1J0ajlNbFNiQnp3UG5zcGE5VTFVNXhjRFJjZFhzZXF4NC83eGJiS01HejhhSDVnZklLTUNWN3hGQVQ4YXYxa2U1MHF3MlI2ZmRZdHNjdjQ2R2VKQ3lqdVl1SHhwbUtoSDFycSsvUXJjUnJtZjRiZWwxNStYSk4wZmliOWNBeUlWL1FwS1pacisvR1YyWHNxMncrZ3NQQ09SU2NVd0VZbEhCSGd3amJCd3FXSkZIZnVnM09LeWVFbTJxOGNKSnovc3E4cmFQbFNVS0FhQjlPTUJSVks0b2hlZThKQ0xFcWYwajQvWHdWb05JdWlhbHZxMkhoSWVUdG51SVRTeXhjQWxUSDhLTUk5MFNKVy9NcHRwN0xLejVXdVM2QnNsRm44K05qSy0tR2hZdEhoenJzMjN4ZjA1cE5SSFlQZz09--e31c5530a5e563b68df06a71c061a76188908659; path=/; HttpOnly
+X-Request-Id: f474ce38-ee1f-45f5-a801-5b5eb1b4dda3
+X-Runtime: 0.078161
+Content-Length: 178</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;data&quot;: [
-    {
-      &quot;id&quot;: 1,
-      &quot;type&quot;: &quot;Meal&quot;,
-      &quot;attributes&quot;: {
-        &quot;title&quot;: &quot;Cheese Burger&quot;,
-        &quot;time&quot;: &quot;2016-09-01T03:10:38.215Z&quot;,
-        &quot;calories&quot;: 400
-      },
-      &quot;links&quot;: {
-        &quot;self&quot;: &quot;http://example.org/v1/meals/1&quot;
-      }
+  &quot;data&quot;: {
+    &quot;id&quot;: 3,
+    &quot;type&quot;: &quot;Meal&quot;,
+    &quot;attributes&quot;: {
+      &quot;title&quot;: &quot;Trappistes Rochefort 10&quot;,
+      &quot;time&quot;: &quot;2016-08-23T13:18:25.000Z&quot;,
+      &quot;calories&quot;: 100
     },
-    {
-      &quot;id&quot;: 2,
-      &quot;type&quot;: &quot;Meal&quot;,
-      &quot;attributes&quot;: {
-        &quot;title&quot;: &quot;Pizza&quot;,
-        &quot;time&quot;: &quot;2016-08-31T22:10:38.609Z&quot;,
-        &quot;calories&quot;: 200
-      },
-      &quot;links&quot;: {
-        &quot;self&quot;: &quot;http://example.org/v1/meals/2&quot;
-      }
+    &quot;links&quot;: {
+      &quot;self&quot;: &quot;http://example.org/v1/meals/3&quot;
     }
-  ]
+  }
 }</pre>
       </div>
     </div>

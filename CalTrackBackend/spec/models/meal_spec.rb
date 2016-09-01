@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Meal, type: :model do
-  let(:subject) {FactoryGirl.build(:meal)}
+  let(:subject) {Meal.first}
   context 'Associations' do
     it { should belong_to(:user) }
   end

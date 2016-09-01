@@ -1,0 +1,42 @@
+{
+  "resource": "Meals",
+  "http_method": "POST",
+  "route": "/v1/meals",
+  "description": "Create a Meal",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "title",
+      "description": "CheeseBurger"
+    },
+    {
+      "required": true,
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "time",
+      "description": "2016-09-01T13:40:33+05:30"
+    },
+    {
+      "required": true,
+      "scope": [
+        "data",
+        "attributes"
+      ],
+      "name": "calories",
+      "description": 200
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+
+  ]
+}

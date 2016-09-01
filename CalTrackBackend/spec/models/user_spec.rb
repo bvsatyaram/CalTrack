@@ -29,7 +29,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:subject) {FactoryGirl.build(:user)}
+  let(:subject) {User.first}
   context 'Associations' do
     it { should have_many(:meals) }
   end

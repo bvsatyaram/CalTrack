@@ -4,10 +4,24 @@
       "name": "Meals",
       "examples": [
         {
-          "description": "Listing meals",
-          "link": "meals/listing_meals.json",
+          "description": "Create a Meal",
+          "link": "meals/create_a_meal.json",
           "groups": "all",
           "route": "/v1/meals",
+          "method": "post"
+        },
+        {
+          "description": "Listing of Meals",
+          "link": "meals/listing_of_meals.json",
+          "groups": "all",
+          "route": "/v1/meals",
+          "method": "get"
+        },
+        {
+          "description": "Show a Meal",
+          "link": "meals/show_a_meal.json",
+          "groups": "all",
+          "route": "/v1/meals/:id",
           "method": "get"
         }
       ]

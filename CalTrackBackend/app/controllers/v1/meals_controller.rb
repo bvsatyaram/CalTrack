@@ -30,6 +30,7 @@ private
 
   def save_meal
     begin
+      debugger
       @meal.title = params[:data][:attributes][:title] if params[:data][:attributes][:title]
       @meal.time = Time.parse(params[:data][:attributes][:time]) if params[:data][:attributes][:time]
       @meal.calories = params[:data][:attributes][:calories] if params[:data][:attributes][:calories]

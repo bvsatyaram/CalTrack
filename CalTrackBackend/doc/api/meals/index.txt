@@ -1,50 +1,456 @@
-Listing meals
--------------
+Listing of Meals
+----------------
 
 Request:
   GET /v1/meals
   Accept: application/json
+  Access-Token: c-CxjGlm2L08D9oSDnfEtw
+  Client: p8CfoHDfHsHLseWUEfSRJg
   Content-Type: application/json
   Cookie: 
+  Expiry: 1473927536
   Host: example.org
+  Token-Type: Bearer
+  Uid: user@caltrack.com
 
 Response:
   Status: 200 OK
   Cache-Control: max-age=0, private, must-revalidate
-  Content-Length: 322
+  Content-Length: 5030
   Content-Type: application/json; charset=utf-8
-  ETag: W/"cca983d7719f59ffa8408fe62957ed65"
+  ETag: W/"d18fb6f225f10c4d2aa3882b3e1e0a40"
+  Set-Cookie: _CalTrackBackend_session=ZzJndTFvYStFMk90czFsbmhyYldsb2hNVXo0Tkl1QVVYV1VIbFRZdmR6U3R2WjBDZU95Q2dEVzFsUWpDVE1SY0hRcm9JdjRRbDZpZGhyYXo5UlFIOEo2NnlMTFVXL3BiaW9BdTVRN25yWWZkaTlQcDRIVS9ZRHY4b3hUQWhDSjlZQklTcWtVZENHY3dBYUl2ZXJhd0hsdGRBS2NhVmxQUzM4TWN4K3BRdUh1WHE0c3pxU3pUVVpGbkNIZWNsb2w4MkxrTlhCcThWOENLZWdrOFNoZ0tyK0RzS09QMHp6MTd4Qk52RVZ6MXIvRmEwNWRHZzVDREpEdy9oR2pYZVZyNFBIWFBtZERTVmFVU21JRUloaEUydkE3UFJUeC9Ibm56ei9URWIxT1EybHRhcXdsRmM2MUJ1cy9IcDcyRlRqSUZBNGZ6UkthZEVDalJILzA4MHdJUjkzNTBjV2tXaTJIRnJWWlp4VHFJY0RRbEkvTlM5SFd3NUVUU2NQN0d1b3BzY1A5L244Q3p0dSt0YU5rWEhTVFN5RnAzTUExcDJIZzRqNmlCcDVTVHNsTjNtYXVUdGlqZDBFa3Q2UzlIZjhQUi0tUEJNL1RwSGo1akVUV2RJVFZvTWZBUT09--59b58448c307831aed02794dd746d0497146adf7; path=/; HttpOnly
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
-  X-Request-Id: d554ebf7-5dbd-4b63-bc1d-77b9b9a9d0de
-  X-Runtime: 0.031528
+  X-Request-Id: d9e50ee5-6a70-4d82-b43f-c5d209b68e82
+  X-Runtime: 0.122846
   X-XSS-Protection: 1; mode=block
+  access-token: c-CxjGlm2L08D9oSDnfEtw
+  client: p8CfoHDfHsHLseWUEfSRJg
+  expiry: 1473927536
+  token-type: Bearer
+  uid: user@caltrack.com
 
   {
     "data": [
       {
-        "id": 1,
+        "id": 3,
         "type": "Meal",
         "attributes": {
-          "title": "Cheese Burger",
-          "time": "2016-09-01T03:10:38.215Z",
-          "calories": 400
+          "title": "Trappistes Rochefort 10",
+          "time": "2016-08-23T13:18:25.000Z",
+          "calories": 100
         },
         "links": {
-          "self": "http://example.org/v1/meals/1"
+          "self": "http://example.org/v1/meals/3"
         }
       },
       {
-        "id": 2,
+        "id": 4,
         "type": "Meal",
         "attributes": {
-          "title": "Pizza",
-          "time": "2016-08-31T22:10:38.609Z",
+          "title": "Two Hearted Ale",
+          "time": "2016-08-24T06:30:23.000Z",
+          "calories": 700
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/4"
+        }
+      },
+      {
+        "id": 5,
+        "type": "Meal",
+        "attributes": {
+          "title": "Chimay Grande Réserve",
+          "time": "2016-08-23T16:56:18.000Z",
+          "calories": 1100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/5"
+        }
+      },
+      {
+        "id": 6,
+        "type": "Meal",
+        "attributes": {
+          "title": "St. Bernardus Abt 12",
+          "time": "2016-08-23T14:52:54.000Z",
+          "calories": 400
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/6"
+        }
+      },
+      {
+        "id": 7,
+        "type": "Meal",
+        "attributes": {
+          "title": "Hercules Double IPA",
+          "time": "2016-08-28T04:32:17.000Z",
           "calories": 200
         },
         "links": {
-          "self": "http://example.org/v1/meals/2"
+          "self": "http://example.org/v1/meals/7"
+        }
+      },
+      {
+        "id": 8,
+        "type": "Meal",
+        "attributes": {
+          "title": "Old Rasputin Russian Imperial Stout",
+          "time": "2016-08-30T03:10:30.000Z",
+          "calories": 600
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/8"
+        }
+      },
+      {
+        "id": 9,
+        "type": "Meal",
+        "attributes": {
+          "title": "Chocolate St",
+          "time": "2016-08-27T04:10:08.000Z",
+          "calories": 1000
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/9"
+        }
+      },
+      {
+        "id": 10,
+        "type": "Meal",
+        "attributes": {
+          "title": "Nugget Nectar",
+          "time": "2016-08-24T19:17:26.000Z",
+          "calories": 1500
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/10"
+        }
+      },
+      {
+        "id": 11,
+        "type": "Meal",
+        "attributes": {
+          "title": "Westmalle Trappist Tripel",
+          "time": "2016-08-26T05:02:58.000Z",
+          "calories": 1300
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/11"
+        }
+      },
+      {
+        "id": 12,
+        "type": "Meal",
+        "attributes": {
+          "title": "Bourbon County Stout",
+          "time": "2016-08-23T04:26:01.000Z",
+          "calories": 1100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/12"
+        }
+      },
+      {
+        "id": 13,
+        "type": "Meal",
+        "attributes": {
+          "title": "Edmund Fitzgerald Porter",
+          "time": "2016-08-23T13:24:59.000Z",
+          "calories": 600
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/13"
+        }
+      },
+      {
+        "id": 14,
+        "type": "Meal",
+        "attributes": {
+          "title": "Trois Pistoles",
+          "time": "2016-08-25T16:36:39.000Z",
+          "calories": 600
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/14"
+        }
+      },
+      {
+        "id": 15,
+        "type": "Meal",
+        "attributes": {
+          "title": "Trois Pistoles",
+          "time": "2016-08-30T08:02:36.000Z",
+          "calories": 800
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/15"
+        }
+      },
+      {
+        "id": 16,
+        "type": "Meal",
+        "attributes": {
+          "title": "Storm King Stout",
+          "time": "2016-08-31T23:13:33.000Z",
+          "calories": 300
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/16"
+        }
+      },
+      {
+        "id": 17,
+        "type": "Meal",
+        "attributes": {
+          "title": "Schneider Aventinus ",
+          "time": "2016-08-30T17:42:28.000Z",
+          "calories": 1500
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/17"
+        }
+      },
+      {
+        "id": 18,
+        "type": "Meal",
+        "attributes": {
+          "title": "Bourbon County Stout",
+          "time": "2016-08-27T02:54:41.000Z",
+          "calories": 100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/18"
+        }
+      },
+      {
+        "id": 19,
+        "type": "Meal",
+        "attributes": {
+          "title": "Duvel",
+          "time": "2016-08-26T23:45:20.000Z",
+          "calories": 200
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/19"
+        }
+      },
+      {
+        "id": 20,
+        "type": "Meal",
+        "attributes": {
+          "title": "Yeti Imperial Stout",
+          "time": "2016-08-30T21:35:01.000Z",
+          "calories": 100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/20"
+        }
+      },
+      {
+        "id": 21,
+        "type": "Meal",
+        "attributes": {
+          "title": "Founders Kentucky Breakfast ",
+          "time": "2016-08-31T08:08:04.000Z",
+          "calories": 1200
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/21"
+        }
+      },
+      {
+        "id": 22,
+        "type": "Meal",
+        "attributes": {
+          "title": "Storm King Stout",
+          "time": "2016-08-29T00:38:59.000Z",
+          "calories": 100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/22"
+        }
+      },
+      {
+        "id": 23,
+        "type": "Meal",
+        "attributes": {
+          "title": "Celebrator Doppelbock",
+          "time": "2016-08-30T10:37:11.000Z",
+          "calories": 1000
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/23"
+        }
+      },
+      {
+        "id": 24,
+        "type": "Meal",
+        "attributes": {
+          "title": "Maharaj",
+          "time": "2016-08-28T21:55:15.000Z",
+          "calories": 1400
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/24"
+        }
+      },
+      {
+        "id": 25,
+        "type": "Meal",
+        "attributes": {
+          "title": "Pliny The Elder",
+          "time": "2016-08-26T15:56:39.000Z",
+          "calories": 1100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/25"
+        }
+      },
+      {
+        "id": 26,
+        "type": "Meal",
+        "attributes": {
+          "title": "Maudite",
+          "time": "2016-08-25T04:22:15.000Z",
+          "calories": 100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/26"
+        }
+      },
+      {
+        "id": 27,
+        "type": "Meal",
+        "attributes": {
+          "title": "Westmalle Trappist Tripel",
+          "time": "2016-08-30T04:10:16.000Z",
+          "calories": 1400
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/27"
+        }
+      },
+      {
+        "id": 28,
+        "type": "Meal",
+        "attributes": {
+          "title": "Maharaj",
+          "time": "2016-08-30T13:34:27.000Z",
+          "calories": 1400
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/28"
+        }
+      },
+      {
+        "id": 29,
+        "type": "Meal",
+        "attributes": {
+          "title": "Péché Mortel",
+          "time": "2016-08-27T12:03:24.000Z",
+          "calories": 1100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/29"
+        }
+      },
+      {
+        "id": 30,
+        "type": "Meal",
+        "attributes": {
+          "title": "Alpha King Pale Ale",
+          "time": "2016-08-31T18:16:42.000Z",
+          "calories": 1400
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/30"
+        }
+      },
+      {
+        "id": 31,
+        "type": "Meal",
+        "attributes": {
+          "title": "Old Rasputin Russian Imperial Stout",
+          "time": "2016-08-31T00:40:40.000Z",
+          "calories": 1500
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/31"
+        }
+      },
+      {
+        "id": 32,
+        "type": "Meal",
+        "attributes": {
+          "title": "Yeti Imperial Stout",
+          "time": "2016-08-23T01:58:03.000Z",
+          "calories": 100
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/32"
         }
       }
     ]
   }
+
+
+Show a Meal
+-----------
+
+Request:
+  GET /v1/meals/3
+  Accept: application/json
+  Access-Token: IKxre3slVejiu1oDW-shaw
+  Client: JmRUnAjEh3p44B4J8l7IHg
+  Content-Type: application/json
+  Cookie: 
+  Expiry: 1473927537
+  Host: example.org
+  Token-Type: Bearer
+  Uid: user@caltrack.com
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 178
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"3f6149f4fe0ffd5ae8dfba52503d47f2"
+  Set-Cookie: _CalTrackBackend_session=Q1JFZEdIcDhqRmJrcnNIK3F5V0FmR3dpUDBxcGdqaDNOQXQxOFNaVEdPTmhCUUt4UkJWZ2g2VE1tenZhdC9xMzB5dW9EV25sU3d3dUVHQ2ozUXZXTUZnVm8vdmp5bXJHUTF6ZmVtUlZaM0lCVnpXL3FRMTlJc1FWSEZYMWNReTVlWW8vWWpKL3laTzZrdkZZZ01hZyt6THFWV1ZiU1J0ajlNbFNiQnp3UG5zcGE5VTFVNXhjRFJjZFhzZXF4NC83eGJiS01HejhhSDVnZklLTUNWN3hGQVQ4YXYxa2U1MHF3MlI2ZmRZdHNjdjQ2R2VKQ3lqdVl1SHhwbUtoSDFycSsvUXJjUnJtZjRiZWwxNStYSk4wZmliOWNBeUlWL1FwS1pacisvR1YyWHNxMncrZ3NQQ09SU2NVd0VZbEhCSGd3amJCd3FXSkZIZnVnM09LeWVFbTJxOGNKSnovc3E4cmFQbFNVS0FhQjlPTUJSVks0b2hlZThKQ0xFcWYwajQvWHdWb05JdWlhbHZxMkhoSWVUdG51SVRTeXhjQWxUSDhLTUk5MFNKVy9NcHRwN0xLejVXdVM2QnNsRm44K05qSy0tR2hZdEhoenJzMjN4ZjA1cE5SSFlQZz09--e31c5530a5e563b68df06a71c061a76188908659; path=/; HttpOnly
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: f474ce38-ee1f-45f5-a801-5b5eb1b4dda3
+  X-Runtime: 0.078161
+  X-XSS-Protection: 1; mode=block
+  access-token: IKxre3slVejiu1oDW-shaw
+  client: JmRUnAjEh3p44B4J8l7IHg
+  expiry: 1473927537
+  token-type: Bearer
+  uid: user@caltrack.com
+
+  {
+    "data": {
+      "id": 3,
+      "type": "Meal",
+      "attributes": {
+        "title": "Trappistes Rochefort 10",
+        "time": "2016-08-23T13:18:25.000Z",
+        "calories": 100
+      },
+      "links": {
+        "self": "http://example.org/v1/meals/3"
+      }
+    }
+  }
+
+
+Create a Meal
+-------------
+
+Parameters:
+  * title - CheeseBurger
+  * time - 2016-09-01T13:40:33+05:30
+  * calories - 200
+

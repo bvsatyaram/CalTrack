@@ -1,0 +1,56 @@
+{
+  "resource": "Meals",
+  "http_method": "GET",
+  "route": "/v1/meals/:id",
+  "description": "Show a Meal",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/v1/meals/3",
+      "request_body": null,
+      "request_headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Access-Token": "IKxre3slVejiu1oDW-shaw",
+        "Token-Type": "Bearer",
+        "Client": "JmRUnAjEh3p44B4J8l7IHg",
+        "Expiry": "1473927537",
+        "Uid": "user@caltrack.com",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"data\": {\n    \"id\": 3,\n    \"type\": \"Meal\",\n    \"attributes\": {\n      \"title\": \"Trappistes Rochefort 10\",\n      \"time\": \"2016-08-23T13:18:25.000Z\",\n      \"calories\": 100\n    },\n    \"links\": {\n      \"self\": \"http://example.org/v1/meals/3\"\n    }\n  }\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "access-token": "IKxre3slVejiu1oDW-shaw",
+        "token-type": "Bearer",
+        "client": "JmRUnAjEh3p44B4J8l7IHg",
+        "expiry": "1473927537",
+        "uid": "user@caltrack.com",
+        "ETag": "W/\"3f6149f4fe0ffd5ae8dfba52503d47f2\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Set-Cookie": "_CalTrackBackend_session=Q1JFZEdIcDhqRmJrcnNIK3F5V0FmR3dpUDBxcGdqaDNOQXQxOFNaVEdPTmhCUUt4UkJWZ2g2VE1tenZhdC9xMzB5dW9EV25sU3d3dUVHQ2ozUXZXTUZnVm8vdmp5bXJHUTF6ZmVtUlZaM0lCVnpXL3FRMTlJc1FWSEZYMWNReTVlWW8vWWpKL3laTzZrdkZZZ01hZyt6THFWV1ZiU1J0ajlNbFNiQnp3UG5zcGE5VTFVNXhjRFJjZFhzZXF4NC83eGJiS01HejhhSDVnZklLTUNWN3hGQVQ4YXYxa2U1MHF3MlI2ZmRZdHNjdjQ2R2VKQ3lqdVl1SHhwbUtoSDFycSsvUXJjUnJtZjRiZWwxNStYSk4wZmliOWNBeUlWL1FwS1pacisvR1YyWHNxMncrZ3NQQ09SU2NVd0VZbEhCSGd3amJCd3FXSkZIZnVnM09LeWVFbTJxOGNKSnovc3E4cmFQbFNVS0FhQjlPTUJSVks0b2hlZThKQ0xFcWYwajQvWHdWb05JdWlhbHZxMkhoSWVUdG51SVRTeXhjQWxUSDhLTUk5MFNKVy9NcHRwN0xLejVXdVM2QnNsRm44K05qSy0tR2hZdEhoenJzMjN4ZjA1cE5SSFlQZz09--e31c5530a5e563b68df06a71c061a76188908659; path=/; HttpOnly",
+        "X-Request-Id": "f474ce38-ee1f-45f5-a801-5b5eb1b4dda3",
+        "X-Runtime": "0.078161",
+        "Content-Length": "178"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/v1/meals/3\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Access-Token: IKxre3slVejiu1oDW-shaw\" \\\n\t-H \"Token-Type: Bearer\" \\\n\t-H \"Client: JmRUnAjEh3p44B4J8l7IHg\" \\\n\t-H \"Expiry: 1473927537\" \\\n\t-H \"Uid: user@caltrack.com\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

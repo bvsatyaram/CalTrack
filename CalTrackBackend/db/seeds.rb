@@ -58,7 +58,7 @@ end
 
 say 'Seeding Data...'
 
-if Rails.env.development?
+if Rails.env.development? || Rails.env.test?
   users = seed_users
 
   seed_meals(users)
