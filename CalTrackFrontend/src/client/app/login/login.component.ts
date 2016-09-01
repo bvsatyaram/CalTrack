@@ -24,11 +24,7 @@ export class LoginComponent {
     this.loginService.loginUser(user)
     .subscribe( authenticatedUser => {
       this.currentUserService.setCurrentUser({id: authenticatedUser.user.id, email: authenticatedUser.user.email, admin: authenticatedUser.user.admin, manager: authenticatedUser.user.manager, target_calories: authenticatedUser.user.target_calories});
-      if(this.currentUserService.redirectUrl && this.currentUserService.redirectUrl.trim() !== '') {
-        this.router.navigate([this.currentUserService.redirectUrl]);
-      } else {
-        this.router.navigate(['/']);
-      }
+      this.router.navigate(['/']);
     });
 
   }

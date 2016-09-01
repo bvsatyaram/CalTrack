@@ -37,7 +37,6 @@ export class AuthHttpService {
         this._afterCall(req, res);
       }, (err: Response) => {
         if(err.status === 401) {
-          this.currentUserService.redirectUrl = req.url;
           this.router.navigate(['/login']);
         }
       });

@@ -4,7 +4,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 @Injectable()
 export class CurrentUserService {
 
-  public redirectUrl: string;
   public isLoggedInEmitter = new EventEmitter();
 
   public currentUser: User;
