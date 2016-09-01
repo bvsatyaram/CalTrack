@@ -11,17 +11,40 @@ Request:
 Response:
   Status: 200 OK
   Cache-Control: max-age=0, private, must-revalidate
-  Content-Length: 11
+  Content-Length: 322
   Content-Type: application/json; charset=utf-8
-  ETag: W/"8fe32e407a1038ee38753b70e5374b3a"
+  ETag: W/"cca983d7719f59ffa8408fe62957ed65"
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
-  X-Request-Id: 673cf7b3-a592-4a0f-b0ca-2051b7f5a786
-  X-Runtime: 0.028314
+  X-Request-Id: d554ebf7-5dbd-4b63-bc1d-77b9b9a9d0de
+  X-Runtime: 0.031528
   X-XSS-Protection: 1; mode=block
 
   {
     "data": [
-  
+      {
+        "id": 1,
+        "type": "Meal",
+        "attributes": {
+          "title": "Cheese Burger",
+          "time": "2016-09-01T03:10:38.215Z",
+          "calories": 400
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/1"
+        }
+      },
+      {
+        "id": 2,
+        "type": "Meal",
+        "attributes": {
+          "title": "Pizza",
+          "time": "2016-08-31T22:10:38.609Z",
+          "calories": 200
+        },
+        "links": {
+          "self": "http://example.org/v1/meals/2"
+        }
+      }
     ]
   }

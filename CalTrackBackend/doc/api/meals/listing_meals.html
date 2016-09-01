@@ -140,17 +140,40 @@ Cookie: </pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;8fe32e407a1038ee38753b70e5374b3a&quot;
+ETag: W/&quot;cca983d7719f59ffa8408fe62957ed65&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 673cf7b3-a592-4a0f-b0ca-2051b7f5a786
-X-Runtime: 0.028314
-Content-Length: 11</pre>
+X-Request-Id: d554ebf7-5dbd-4b63-bc1d-77b9b9a9d0de
+X-Runtime: 0.031528
+Content-Length: 322</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
   &quot;data&quot;: [
-
+    {
+      &quot;id&quot;: 1,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Cheese Burger&quot;,
+        &quot;time&quot;: &quot;2016-09-01T03:10:38.215Z&quot;,
+        &quot;calories&quot;: 400
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/1&quot;
+      }
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;type&quot;: &quot;Meal&quot;,
+      &quot;attributes&quot;: {
+        &quot;title&quot;: &quot;Pizza&quot;,
+        &quot;time&quot;: &quot;2016-08-31T22:10:38.609Z&quot;,
+        &quot;calories&quot;: 200
+      },
+      &quot;links&quot;: {
+        &quot;self&quot;: &quot;http://example.org/v1/meals/2&quot;
+      }
+    }
   ]
 }</pre>
       </div>

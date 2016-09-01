@@ -26,17 +26,17 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"data\": [\n\n  ]\n}",
+      "response_body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"type\": \"Meal\",\n      \"attributes\": {\n        \"title\": \"Cheese Burger\",\n        \"time\": \"2016-09-01T03:10:38.215Z\",\n        \"calories\": 400\n      },\n      \"links\": {\n        \"self\": \"http://example.org/v1/meals/1\"\n      }\n    },\n    {\n      \"id\": 2,\n      \"type\": \"Meal\",\n      \"attributes\": {\n        \"title\": \"Pizza\",\n        \"time\": \"2016-08-31T22:10:38.609Z\",\n        \"calories\": 200\n      },\n      \"links\": {\n        \"self\": \"http://example.org/v1/meals/2\"\n      }\n    }\n  ]\n}",
       "response_headers": {
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "Content-Type": "application/json; charset=utf-8",
-        "ETag": "W/\"8fe32e407a1038ee38753b70e5374b3a\"",
+        "ETag": "W/\"cca983d7719f59ffa8408fe62957ed65\"",
         "Cache-Control": "max-age=0, private, must-revalidate",
-        "X-Request-Id": "673cf7b3-a592-4a0f-b0ca-2051b7f5a786",
-        "X-Runtime": "0.028314",
-        "Content-Length": "11"
+        "X-Request-Id": "d554ebf7-5dbd-4b63-bc1d-77b9b9a9d0de",
+        "X-Runtime": "0.031528",
+        "Content-Length": "322"
       },
       "response_content_type": "application/json; charset=utf-8",
       "curl": "curl \"http://localhost:3000/v1/meals\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
