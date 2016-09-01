@@ -22,6 +22,10 @@ class Ability
     can :destroy, User do |usr|
       user.admin?
     end
+
+    can :manage, Meal do |meal|
+      user.id == meal.user_id
+    end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

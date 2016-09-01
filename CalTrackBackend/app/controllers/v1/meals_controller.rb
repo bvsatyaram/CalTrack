@@ -2,14 +2,14 @@ class V1::MealsController < V1::BaseController
   before_action :fetch_meal, only: [:show, :update, :destroy]
 
   def index
-    @meals = Meal.all
+    @meals = current_v1_user.meals.all
   end
 
   def show
   end
 
   def create
-    @meal = Meal.new
+    @meal = current_v1_user.meals.new
     save_meal
   end
 
@@ -25,7 +25,7 @@ class V1::MealsController < V1::BaseController
 private
 
   def fetch_meal
-    @meal = Meal.find(params[:id])
+    @meal = current_v1_user.meals.find(params[:id])
   end
 
   def save_meal
