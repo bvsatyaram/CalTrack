@@ -8,6 +8,7 @@
 #  calories   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 FactoryGirl.define do
@@ -15,5 +16,6 @@ FactoryGirl.define do
     title "Lunch"
     time 1.hour.ago
     calories 100
+    association :user
   end
 end

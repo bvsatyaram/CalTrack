@@ -26,19 +26,15 @@
 #  manager                :boolean          default(FALSE)
 #
 
-FactoryGirl.define do
-  factory :user do
-    sequence(:email) { |n| "user#{n}@caltrack.com" }
-    password 'secret123'
-    password_confirmation 'secret123'
-    target_calories 2000
+require 'rails_helper'
 
-    factory :admin do
-      admin true
-    end
-
-    factory :manager do
-      manager true
-    end
+RSpec.describe User, type: :model do
+  let(:subject) {FactoryGirl.build(:user)}
+  context 'Associations' do
+    it { should have_many(:meals) }
+  end
+  context 'Validations' do
+    it { should validate_presence_of(:target_calories) }
+    it { should validate_numericality_of(:target_calories) }
   end
 end

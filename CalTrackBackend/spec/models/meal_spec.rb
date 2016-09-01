@@ -8,36 +8,21 @@
 #  calories   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 require 'rails_helper'
 
 RSpec.describe Meal, type: :model do
+  let(:subject) {FactoryGirl.build(:meal)}
+  context 'Associations' do
+    it { should belong_to(:user) }
+  end
   context 'Validations' do
-    let(:meal) {FactoryGirl.build(:meal)}
-    it 'validates title' do
-      expect(meal).to be_valid
-      meal.title = nil
-      expect(meal).not_to be_valid
-    end
-    it 'validates time' do
-      expect(meal).to be_valid
-      meal.time = nil
-      expect(meal).not_to be_valid
-    end
-    context 'validates calories' do
-      it 'validates presence of calories' do
-        expect(meal).to be_valid
-        meal.calories = nil
-        expect(meal).not_to be_valid
-      end
-      it 'validates numericality of calories' do
-        expect(meal).to be_valid
-        meal.calories = 'hundred'
-        expect(meal).not_to be_valid
-        meal.calories = 100
-        expect(meal).to be_valid
-      end
-    end
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:time) }
+    it { should validate_presence_of(:calories) }
+    it { should validate_numericality_of(:calories) }
+    it { should validate_presence_of(:user) }
   end
 end

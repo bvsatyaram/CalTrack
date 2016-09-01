@@ -33,5 +33,7 @@ class User < ActiveRecord::Base
           #:confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  validates :target_calories, presence: true
+  has_many :meals
+
+  validates :target_calories, presence: true, numericality: true
 end
