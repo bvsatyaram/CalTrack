@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
           #:confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :meals
+  has_many :meals, dependent: :destroy
 
   validates :target_calories, presence: true, numericality: true
 end
